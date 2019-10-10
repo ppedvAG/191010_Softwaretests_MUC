@@ -43,5 +43,10 @@ namespace ÖsterreichischeZentralbank
             }
 
         }
+
+        public bool IsNowOpen()
+        {
+            return IsOpen(DateTime.Now);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ÖsterreichischeZentralbank;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,14 @@ namespace ÖsterreichischeZentralbank.Tests
             DateTime time = new DateTime(jahr, monat, tag, stunde, minute, 00);
 
             Assert.AreEqual(erwartetesErgebnis, öz.IsOpen(time));
+        }
+
+        [TestMethod]
+        public void IsNowOpenTest()
+        {
+            Öffnungszeiten öz = new Öffnungszeiten();
+            // Problem: Am Fr gehts, am So nicht -> DateTime.Now
+            Assert.IsTrue(öz.IsNowOpen());
         }
     }
 }
