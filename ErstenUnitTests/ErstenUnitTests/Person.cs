@@ -24,7 +24,23 @@ namespace ErstenUnitTests
             // Teil1: Equals bauen
             // Teil2: Tests schreiben und alle Möglichkeiten durchtesten
 
-            return true; 
+            if (obj is null)
+                return false;
+            if (obj is Person == false)
+                return false;
+            else // Es ist eine Person
+            {
+                var p2 = (Person)obj;
+                if (obj == this) // Referenzgleich
+                    return true;
+                else if (this.Vorname == p2.Vorname &&
+                         this.Nachname == p2.Nachname &&
+                         this.Alter == p2.Alter &&
+                         this.Kontostand == p2.Kontostand) // Vlt Wertegleich ?
+                    return true;
+                else
+                    return false; // Unterschiedliche Personen
+            }
         }
     }
 }
