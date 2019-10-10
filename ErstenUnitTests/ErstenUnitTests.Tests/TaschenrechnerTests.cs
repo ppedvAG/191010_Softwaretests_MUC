@@ -52,5 +52,18 @@ namespace ErstenUnitTests.Tests
                 tr.Add(Int32.MinValue, -1);
             });
         }
+
+        [TestMethod]
+        [DataRow(5,3,8)]
+        [DataRow(100,200,300)]
+        [DataRow(200,100,300)]
+        [DataRow(5,-3,2)]
+        [DataRow(-5,3,-2)]
+        public void Add_returns_expectedValue(int z1, int z2, int expectedResult)
+        {
+            Taschenrechner tr = new Taschenrechner();
+            var result = tr.Add(z1, z2);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
