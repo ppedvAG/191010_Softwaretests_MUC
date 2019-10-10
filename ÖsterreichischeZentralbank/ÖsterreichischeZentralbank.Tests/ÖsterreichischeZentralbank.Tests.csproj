@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="BankkontoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ÖffnungszeitenTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
