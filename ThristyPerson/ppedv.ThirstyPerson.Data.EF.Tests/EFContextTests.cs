@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using AutoFixture;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ppedv.ThirstyPerson.Domain;
@@ -126,5 +128,72 @@ namespace ppedv.ThirstyPerson.Data.EF.Tests
                 loadedPerson.Should().BeNull();
             }
         }
+
+        [TestMethod]
+        public void Autofixture_Demo()
+        {
+            // https://github.com/AutoFixture/AutoFixture
+            // https://github.com/AutoFixture/AutoFixture/wiki/Cheat-Sheet
+
+            Fixture fix = new Fixture(); // Konfiguration
+
+            var person = fix.Create<Person>();
+            var personen = fix.CreateMany<Person>(1000).ToArray();
+
+            // Geschachtelt:
+
+            var company = fix.Create<Company>();
+
+            // Zahl in einem bestimmten Bereich:
+            // https://stackoverflow.com/questions/40811099/autofixture-for-number-ranges
+        }
+
+        [TestMethod]
+        public void EFContext_can_CRUD_Person_FluentAssertions_Autofixture() // Atomar im Sinne des Datentypen
+        {
+            Fixture fix = new Fixture();
+
+            Person p1 = fix.Create<Person>();
+            string newLastName = fix.Create<string>();
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Create:
+                context.Person.Add(p1);
+                context.SaveChanges(); // Speichern -> Automatisch eine ID
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Create:
+                var loadedPerson = context.Person.Find(p1.ID);
+
+                loadedPerson.Should().BeEquivalentTo(p1); // ObjectGraph Vergleich
+
+                // Update 
+                loadedPerson.LastName = newLastName;
+                context.SaveChanges(); // Speichern
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Update:
+                var loadedPerson = context.Person.Find(p1.ID);
+
+                loadedPerson.LastName.Should().Be(newLastName);
+
+                // Delete 
+                context.Person.Remove(loadedPerson);
+                context.SaveChanges(); // Speichern
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Delete:
+                var loadedPerson = context.Person.Find(p1.ID);
+                loadedPerson.Should().BeNull();
+            }
+        }
+
     }
 }
