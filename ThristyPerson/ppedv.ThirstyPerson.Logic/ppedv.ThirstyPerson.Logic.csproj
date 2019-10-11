@@ -4,4 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.ThirstyPerson.Domain\ppedv.ThirstyPerson.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
