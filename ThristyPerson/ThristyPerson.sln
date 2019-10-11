@@ -11,9 +11,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logic", "Logic", "{FF06BBDE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9176A914-09E5-44B2-A15E-EFCDCA3F96AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.ThirstyPerson.Domain", "ppedv.ThirstyPerson.Domain\ppedv.ThirstyPerson.Domain.csproj", "{39F55DC4-B997-4522-A68A-9AE46F708343}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39F55DC4-B997-4522-A68A-9AE46F708343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39F55DC4-B997-4522-A68A-9AE46F708343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39F55DC4-B997-4522-A68A-9AE46F708343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39F55DC4-B997-4522-A68A-9AE46F708343}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39F55DC4-B997-4522-A68A-9AE46F708343} = {A089AB03-0172-4680-A771-FCAE02368E76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF1FDAC-E422-4F14-AFBD-AE4CD3F38FA6}
