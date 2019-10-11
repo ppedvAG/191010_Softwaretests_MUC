@@ -1,4 +1,5 @@
 ﻿using System;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ppedv.ThirstyPerson.Domain;
 
@@ -78,5 +79,52 @@ namespace ppedv.ThirstyPerson.Data.EF.Tests
             }
         }
 
+        // BDD: https://specflow.org/getting-started/
+        // https://fluentassertions.com/introduction
+
+        [TestMethod]
+        public void EFContext_can_CRUD_Person_FluentAssertions() // Atomar im Sinne des Datentypen
+        {
+            Person p1 = new Person { FirstName = "Tom", LastName = "Ate", Age = 10, Balance = 100 };
+            string newLastName = "Atinger";
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Create:
+                context.Person.Add(p1);
+                context.SaveChanges(); // Speichern -> Automatisch eine ID
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Create:
+                var loadedPerson = context.Person.Find(p1.ID);
+
+                loadedPerson.Should().BeEquivalentTo(p1); // ObjectGraph Vergleich
+
+                // Update 
+                loadedPerson.LastName = newLastName;
+                context.SaveChanges(); // Speichern
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Update:
+                var loadedPerson = context.Person.Find(p1.ID);
+
+                loadedPerson.LastName.Should().Be(newLastName);
+
+                // Delete 
+                context.Person.Remove(loadedPerson);
+                context.SaveChanges(); // Speichern
+            }
+
+            using (EFContext context = new EFContext(connectionString))
+            {
+                // Check Delete:
+                var loadedPerson = context.Person.Find(p1.ID);
+                loadedPerson.Should().BeNull();
+            }
+        }
     }
 }
