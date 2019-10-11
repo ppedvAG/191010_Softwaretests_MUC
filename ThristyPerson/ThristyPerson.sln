@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.ThirstyPerson.Data.EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ppedv.ThirstyPerson.Logic", "ppedv.ThirstyPerson.Logic\ppedv.ThirstyPerson.Logic.csproj", "{2C6C8E3A-5C28-4204-A06A-BDA86D7371CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robotech.Hardware", "Robotech.Hardware\Robotech.Hardware.csproj", "{BA57C1A6-FB2E-45A7-AF34-919FAF017D21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{2C6C8E3A-5C28-4204-A06A-BDA86D7371CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C6C8E3A-5C28-4204-A06A-BDA86D7371CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C6C8E3A-5C28-4204-A06A-BDA86D7371CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA57C1A6-FB2E-45A7-AF34-919FAF017D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA57C1A6-FB2E-45A7-AF34-919FAF017D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA57C1A6-FB2E-45A7-AF34-919FAF017D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA57C1A6-FB2E-45A7-AF34-919FAF017D21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{45E09904-F417-46C4-9D99-30A08F9228C6} = {98677A40-B5E5-4EFC-8CA4-C3FA955CEB68}
 		{43A476C1-0CE7-41A3-84D3-5353748089DE} = {98677A40-B5E5-4EFC-8CA4-C3FA955CEB68}
 		{2C6C8E3A-5C28-4204-A06A-BDA86D7371CD} = {FF06BBDE-9353-4328-A43D-439C15594FC1}
+		{BA57C1A6-FB2E-45A7-AF34-919FAF017D21} = {FF06BBDE-9353-4328-A43D-439C15594FC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8DF1FDAC-E422-4F14-AFBD-AE4CD3F38FA6}
