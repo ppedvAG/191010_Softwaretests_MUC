@@ -14,8 +14,8 @@ namespace Robotech.Hardware
         private Fixture fix = new Fixture();
         public Person RecruitPerson()
         {
-            Console.Beep(8000,500);
-            Console.Beep(5000, 500);
+            Console.Beep(800,200);
+            Console.Beep(500, 200);
             return fix.Create<Person>();
         }
     }
