@@ -45,6 +45,12 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Fare, Version=2.1.0.0, Culture=neutral, PublicKeyToken=ea68d375bf33a7c8, processorArchitecture=MSIL">
       <HintPath>..\packages\Fare.2.1.1\lib\net35\Fare.dll</HintPath>
     </Reference>
@@ -83,9 +89,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ppedv.ThirstyPerson.Data.EF\ppedv.ThirstyPerson.Data.EF.csproj">
+      <Project>{45e09904-f417-46c4-9d99-30a08f9228c6}</Project>
+      <Name>ppedv.ThirstyPerson.Data.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ppedv.ThirstyPerson.Domain\ppedv.ThirstyPerson.Domain.csproj">
       <Project>{39f55dc4-b997-4522-a68a-9ae46f708343}</Project>
       <Name>ppedv.ThirstyPerson.Domain</Name>
@@ -93,6 +104,10 @@
     <ProjectReference Include="..\ppedv.ThirstyPerson.Logic\ppedv.ThirstyPerson.Logic.csproj">
       <Project>{2c6c8e3a-5c28-4204-a06a-bda86d7371cd}</Project>
       <Name>ppedv.ThirstyPerson.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Robotech.Hardware\Robotech.Hardware.csproj">
+      <Project>{ba57c1a6-fb2e-45a7-af34-919faf017d21}</Project>
+      <Name>Robotech.Hardware</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
