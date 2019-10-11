@@ -62,6 +62,9 @@
       <HintPath>FakesAssemblies\System.4.0.0.0.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="ÖsterreichischeZentralbank.Fakes">
+      <HintPath>FakesAssemblies\ÖsterreichischeZentralbank.Fakes.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BankkontoTests.cs" />
@@ -71,6 +74,7 @@
   <ItemGroup>
     <Fakes Include="Fakes\System.fakes" />
     <Fakes Include="Fakes\mscorlib.fakes" />
+    <Fakes Include="Fakes\ÖsterreichischeZentralbank.fakes" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

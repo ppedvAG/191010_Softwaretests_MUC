@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.QualityTools.Testing.Fakes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ÖsterreichischeZentralbank.Tests
@@ -92,5 +93,30 @@ namespace ÖsterreichischeZentralbank.Tests
         }
 
         // Zustand erreicht => Einchecken
+
+
+        [TestMethod]
+        public void Reichtum_gibt_den_richten_Wert_aus()
+        {
+            using(ShimsContext.Create())
+            {
+                Bankkonto ba = new Bankkonto(); // In wirklichkeit 100
+
+                Fakes.ShimBankkonto.AllInstances.KontostandGet = x => 0;
+                Assert.AreEqual(Reichtum.Pleite, ba.Reichtum);
+
+                Fakes.ShimBankkonto.AllInstances.KontostandGet = x => 50;
+                Assert.AreEqual(Reichtum.Arm, ba.Reichtum);
+
+                Fakes.ShimBankkonto.AllInstances.KontostandGet = x => 500;
+                Assert.AreEqual(Reichtum.Normal, ba.Reichtum);
+
+                Fakes.ShimBankkonto.AllInstances.KontostandGet = x => 50_000;
+                Assert.AreEqual(Reichtum.GehobeneMittelschicht, ba.Reichtum);
+
+                Fakes.ShimBankkonto.AllInstances.KontostandGet = x => 9_000_000;
+                Assert.AreEqual(Reichtum.MegaReich, ba.Reichtum);
+            }
+        }
     }
 }
